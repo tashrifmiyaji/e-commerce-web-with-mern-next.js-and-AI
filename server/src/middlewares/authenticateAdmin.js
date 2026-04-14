@@ -10,7 +10,7 @@ const authenticateAdmin = async (req, res, next) => {
 			return next(new AppError("Unauthorized access", 401));
 		}
 		const decoded = jwt.verify(token, env.jwtSecret);
-        const admin = await Admin.findById(decoded._id).select("-password");
+        const admin = await Admin.findById(decoded._adminId).select("-password");
         if (!admin) {
             return next(new AppError("Admin not found!", 401))
         }
