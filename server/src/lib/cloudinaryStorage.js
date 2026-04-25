@@ -18,7 +18,7 @@ const uploadToCloudinary = (buffer, folder = "general") => {
 	}
 };
 
-const deleteFromCloudinary = (publicId) => {
+const deleteFromCloudinary = async (publicId) => {
 	
 	try {
 		if(!publicId) return;
